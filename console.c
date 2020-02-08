@@ -202,6 +202,12 @@ void
 consoleintr(int (*getc)(void))
 {
   int c, doprocdump = 0;
+#ifdef CS333_P3
+  int doctrlf = 0;
+  int doctrlr = 0;
+  int doctrls = 0;
+  int doctrlz = 0;
+#endif
 #ifdef PDX_XV6
   int shutdown = FALSE;
 #endif // PDX_XV6
@@ -231,6 +237,20 @@ consoleintr(int (*getc)(void))
         consputc(BACKSPACE);
       }
       break;
+#ifdef CS333_P3
+    case C('R'):
+      doctrlr = 1;
+      break;
+    case C('F'):
+      doctrlf = 1;
+      break;
+    case C('S'):
+      doctrls = 1;
+      break;
+    case C('Z'):
+      doctrlz = 1;
+      break;
+#endif
     default:
       if(c != 0 && input.e-input.r < INPUT_BUF){
         c = (c == '\r') ? '\n' : c;
@@ -252,6 +272,20 @@ consoleintr(int (*getc)(void))
   if(doprocdump) {
     procdump();  // now call procdump() wo. cons.lock held
   }
+#ifdef CS333_P3
+  if(doctrlr) {
+    ctrlr();  
+  }
+  if(doctrlf) {
+    ctrlf();  
+  }
+  if(doctrls) {
+    ctrls(); 
+  }
+  if(doctrlz) {
+    ctrlz();  
+  }
+#endif
 }
 
 int

@@ -9,7 +9,12 @@ struct spinlock;
 struct sleeplock;
 struct stat;
 struct superblock;
-
+#ifdef CS333_P2
+struct uproc;
+#endif //CS333_P2
+#ifdef CS333_P3
+struct ptrs;
+#endif
 // bio.c
 void            binit(void);
 struct buf*     bread(uint, uint);
@@ -124,7 +129,22 @@ void            userinit(void);
 int             wait(void);
 void            wakeup(void*);
 void            yield(void);
-
+#ifdef CS333_P2
+int             getprocs(int, struct uproc*);
+#endif //CS333_P2
+#ifdef CS333_P3
+void            ctrlr(void);
+void            ctrlf(void);
+void            ctrls(void);
+void            ctrlz(void);
+#endif
+#ifdef CS333_P4
+int             setpriority(int, int);
+int             getpriority(int);
+struct proc*    FindPID(int);
+void            promote(void);
+void            schedDemote(int, int);
+#endif
 // swtch.S
 void            swtch(struct context**, struct context*);
 

@@ -99,3 +99,11 @@ testuidgid.c
 testuidgid.txt
 p2testsuite.c
 p4-test.c
+uproc.h
+testids.c
+p2-test.c
+list_management.c
+p3-test.c
+p3-testctrlf.c
+p3-test-the-Evans.c
+p4-priority.c

@@ -1,3 +1,11 @@
+/* ============================================================================= *
+ * Hey CS333 Students!                                                           *
+ * -------------------                                                           *
+ *                                                                               *
+ * Do not modify anything in this file without the explicit permission of the    *
+ * course staff.                                                                 *
+ * ============================================================================= */
+
 #include "types.h"
 #include "user.h"
 #include "param.h"
@@ -30,12 +38,11 @@ testPromotion(void)
 
   if (newPrio != prio && newPrio > prio) {
     printf(1, "Promotion has occurred.\n");
-    printf(1, "**** TEST PASSES ****\n");
+    printf(1, "**** TEST PASSES ****\n\n\n");
   } else {
     printf(2, "Either promotion did not occur or an unexpected change in priority happened.\n");
-    printf(2, "**** TEST FAILED ****\n");
+    printf(2, "**** TEST FAILED ****\n\n\n");
   }
-  printf(1, "\n\n");
 }
 
 // Create a process and change the priority

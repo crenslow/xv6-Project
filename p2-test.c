@@ -285,6 +285,7 @@ testgetprocs(){
       wait();
       exit();
     }
+    
     // Only return left is -1, which is no space left in ptable
     success  = testinvalidarray();
     success |= testprocarray( 1,  1);
